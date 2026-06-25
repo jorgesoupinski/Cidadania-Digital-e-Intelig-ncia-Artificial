@@ -1,0 +1,73 @@
+/* Variáveis de Cores (Identidade Visual) */
+:root {
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --primary-color: #007bff;
+}
+
+/* Classe do Modo Escuro que o JS vai ativar */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --primary-color: #00ff88;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Layout Avançado com Flexbox */
+header, main, footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Efeito Hover Suave para Usabilidade Nível 4 */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsividade (Media Queries) */
+@media (max-width: 600px) {
+    section {
+        width: 95%;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+}
