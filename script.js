@@ -1,33 +1,41 @@
-// Seleção de elementos do DOM
+// ==========================================================================
+// SELEÇÃO DE ELEMENTOS DO DOM
+// ==========================================================================
 const toggleBtn = document.getElementById('toggle-dark-mode');
 const submitBtn = document.getElementById('submit-quiz');
 const quizResult = document.getElementById('quiz-result');
 
-// 1. Funcionalidade de Acessibilidade: Modo Escuro
+// ==========================================================================
+// FUNCTIONALIDADE 1: ACESSIBILIDADE (MODO ESCURO)
+// ==========================================================================
 toggleBtn.addEventListener('click', () => {
+    // Liga/desliga a classe 'dark-mode' no body da página
     document.body.classList.toggle('dark-mode');
 });
 
-// 2. Funcionalidade do Quiz: Validação de dados e resposta dinâmica
+// ==========================================================================
+// FUNCTIONALIDADE 2: VALIDAÇÃO DO QUIZ ANTI-DESINFORMAÇÃO
+// ==========================================================================
 submitBtn.addEventListener('click', () => {
-    // Captura a opção selecionada usando o nome do input radio
+    // Captura a opção de resposta selecionada pelo utilizador
     const selectedOption = document.querySelector('input[name="q1"]:checked');
     
-    // Uso de variável para processar a informação antes de exibir (Requisito Nível 4)
+    // Variável para processar a informação antes de exibir no ecrã (Requisito Nível 4)
     let mensagemFeedback = "";
 
+    // Verifica a resposta e define o feedback dinâmico
     if (!selectedOption) {
-        mensagemFeedback = "Por favor, selecione uma resposta antes de verificar!";
+        mensagemFeedback = "Por favor, seleciona uma resposta antes de verificar!";
         quizResult.style.color = "orange";
     } else if (selectedOption.value === "correto") {
-        mensagemFeedback = "🎉 Parabéns! Você acertou. Prestar atenção nos detalhes do rosto é crucial para detectar fraudes visuais.";
+        mensagemFeedback = "🎉 Parabéns! Acertaste. Prestar atenção nos detalhes do rosto e piscadas de olhos é crucial para detetar fraudes visuais.";
         quizResult.style.color = "green";
     } else {
-        mensagemFeedback = "❌ Incorreto. As deepfakes costumam falhar em detalhes biológicos sutis, como o piscar de olhos.";
+        mensagemFeedback = "❌ Incorreto. As deepfakes costumam falhar em detalhes biológicos sutis, como a frequência com que o rosto pisca.";
         quizResult.style.color = "red";
     }
 
-    // Exibe o resultado manipulando o DOM e removendo a classe hidden
+    // Manipula o DOM para atualizar o texto e exibir a div de resultado
     quizResult.textContent = mensagemFeedback;
     quizResult.classList.remove('hidden');
 });
