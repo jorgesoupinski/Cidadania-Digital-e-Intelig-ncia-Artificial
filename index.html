@@ -9,37 +9,79 @@
 <body>
 
     <header>
-        <h1>Cidadania Digital & IA</h1>
-        <p>Aprenda a identificar deepfakes e combater a desinformação automatizada.</p>
-        <button id="toggle-dark-mode">Alternar Modo Escuro</button>
+        <div class="header-container">
+            <h1>Cidadania Digital & IA</h1>
+            <p>Guia prático contra a desinformação automatizada e mídias manipuladas.</p>
+            <button id="toggle-dark-mode" class="btn-secondary">🌓 Alternar Modo Escuro</button>
+        </div>
     </header>
 
     <main>
-        <section id="sobre">
+        
+        <section id="sobre" class="card">
             <h2>O que são Deepfakes?</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens manipulados por Inteligência Artificial que imitam a aparência e a voz de pessoas reais. Elas são perigosas porque podem espalhar mentiras de forma muito convincente.</p>
+            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial (redes neurais gerativas) que substituem rostos e vozes de forma ultra-realista. Embora tenham uso legítimo no cinema, são frequentemente armas de desinformação, usadas para difamação e fraudes políticas ou financeiras.</p>
+            
+            <div class="media-box">
+                <p class="alert-text">⚠️ <strong>Impacto Social:</strong> A desinformação automatizada corrói a confiança nas instituições e manipula debates públicos de forma instantânea.</p>
+            </div>
         </section>
 
-        <section id="quiz-section">
-            <h2>Quiz: Você sabe detectar uma Deepfake?</h2>
+        <section id="diretrizes" class="card">
+            <h2>Como Identificar uma Fraude Visual?</h2>
+            <p>Apesar da evolução da tecnologia de IA, o olho atento pode capturar falhas biológicas clássicas:</p>
+            
+            <div class="grid-dicas">
+                <div class="dica-item">
+                    <h3>👁️ Padrão Ocular</h3>
+                    <p>Falta de piscadas de olhos naturais ou olhos que apontam para direções levemente desalinhadas.</p>
+                </div>
+                <div class="dica-item">
+                    <h3>👤 Texturas e Bordas</h3>
+                    <p>Borrões estranhos perto da linha do cabelo, orelhas ou sombras que não se movem com o rosto.</p>
+                </div>
+                <div class="dica-item">
+                    <h3>🗣️ Sincronia Labial</h3>
+                    <p>O som da voz (áudio) ligeiramente atrasado ou desconexo do movimento dos lábios da pessoa.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-section" class="card">
+            <h2>Desafio Prático: Você sabe detectar uma Deepfake?</h2>
+            <p>Teste seus conhecimentos com nosso simulador de cidadania digital:</p>
+            
             <form id="quiz-form">
-                <div class="question">
-                    <p>1. Qual destes é um sinal comum de um vídeo em deepfake?</p>
-                    <label>
-                        <input type="radio" name="q1" value="correto"> Piscar de olhos artificial ou sombras estranhas no rosto.
+                <div class="question-block">
+                    <p class="question-title">1. Qual destes sinais biológicos costuma denunciar uma IA mal configurada em vídeos?</p>
+                    <label class="radio-label">
+                        <input type="radio" name="q1" value="correto"> Piscar de olhos artificial, falta de sincronia labial e sombras borradas.
                     </label>
-                    <label>
-                        <input type="radio" name="q1" value="errado"> Alta resolução de imagem e áudio limpo.
+                    <label class="radio-label">
+                        <input type="radio" name="q1" value="errado"> Áudio em altíssima definição e enquadramento perfeito de câmera.
                     </label>
                 </div>
-                <button type="button" id="submit-quiz">Verificar Resposta</button>
+
+                <div class="question-block">
+                    <p class="question-title">2. Recebeu um vídeo polêmico de um político no WhatsApp. Qual a postura ideal de cidadania digital?</p>
+                    <label class="radio-label">
+                        <input type="radio" name="q2" value="errado"> Compartilhar imediatamente nos grupos para alertar seus amigos.
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="q2" value="correto"> Interromper o compartilhamento e checar em portais de notícias confiáveis.
+                    </label>
+                </div>
+
+                <button type="button" id="submit-quiz" class="btn-primary">Verificar Respostas</button>
             </form>
-            <div id="quiz-result" class="hidden"></div>
+            
+            <div id="quiz-result" class="hidden shadow-box"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Desenvolvido por [Seu Nome]. Conteúdo 100% autoral.</p>
+        <p>&copy; 2026 — Projeto de Recuperação: Educação Digital e Computação (Ensino Médio)</p>
+        <p class="tag-footer">Hashtag Oficial do Projeto: <strong>#cidadaniadigital2026</strong></p>
     </footer>
 
     <script src="js/script.js"></script>
