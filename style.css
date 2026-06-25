@@ -1,4 +1,4 @@
-/* Variáveis de Cores (Identidade Visual) */
+/* Variáveis de Cores para Identidade Visual e Modo Escuro */
 :root {
     --bg-color: #f4f7f6;
     --text-color: #333;
@@ -6,7 +6,7 @@
     --primary-color: #007bff;
 }
 
-/* Classe do Modo Escuro que o JS vai ativar */
+/* Classe ativada pelo JavaScript para o Modo Escuro (Acessibilidade) */
 body.dark-mode {
     --bg-color: #121212;
     --text-color: #e0e0e0;
@@ -23,7 +23,7 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* Layout Avançado com Flexbox */
+/* Layout Avançado com Flexbox (Subcategoria A) */
 header, main, footer {
     display: flex;
     flex-direction: column;
@@ -41,7 +41,25 @@ section {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Efeito Hover Suave para Usabilidade Nível 4 */
+.question {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+label:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Efeito Visual Interativo (Subcategoria B) */
 button {
     background-color: var(--primary-color);
     color: white;
@@ -49,6 +67,7 @@ button {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
     transition: transform 0.2s, background-color 0.2s;
 }
 
@@ -57,17 +76,25 @@ button:hover {
     opacity: 0.9;
 }
 
+#quiz-result {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
 .hidden {
     display: none;
 }
 
-/* Responsividade (Media Queries) */
+/* Responsividade Completa via Media Queries (Subcategoria B - Nível 4) */
 @media (max-width: 600px) {
     section {
         width: 95%;
         padding: 15px;
     }
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        text-align: center;
     }
 }
