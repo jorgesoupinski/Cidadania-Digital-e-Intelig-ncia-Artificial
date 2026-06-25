@@ -1,41 +1,39 @@
-// ==========================================================================
-// SELEÇÃO DE ELEMENTOS DO DOM
-// ==========================================================================
+// Seleção dos elementos do DOM
 const toggleBtn = document.getElementById('toggle-dark-mode');
 const submitBtn = document.getElementById('submit-quiz');
 const quizResult = document.getElementById('quiz-result');
 
-// ==========================================================================
-// FUNCTIONALIDADE 1: ACESSIBILIDADE (MODO ESCURO)
-// ==========================================================================
+// Alternador de Modo Escuro (Acessibilidade)
 toggleBtn.addEventListener('click', () => {
-    // Liga/desliga a classe 'dark-mode' no body da página
     document.body.classList.toggle('dark-mode');
 });
 
-// ==========================================================================
-// FUNCTIONALIDADE 2: VALIDAÇÃO DO QUIZ ANTI-DESINFORMAÇÃO
-// ==========================================================================
+// Processamento do Quiz com Múltiplas Variáveis (Requisito Nível 4)
 submitBtn.addEventListener('click', () => {
-    // Captura a opção de resposta selecionada pelo utilizador
-    const selectedOption = document.querySelector('input[name="q1"]:checked');
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    const q2 = document.querySelector('input[name="q2"]:checked');
     
-    // Variável para processar a informação antes de exibir no ecrã (Requisito Nível 4)
-    let mensagemFeedback = "";
-
-    // Verifica a resposta e define o feedback dinâmico
-    if (!selectedOption) {
-        mensagemFeedback = "Por favor, seleciona uma resposta antes de verificar!";
-        quizResult.style.color = "orange";
-    } else if (selectedOption.value === "correto") {
-        mensagemFeedback = "🎉 Parabéns! Acertaste. Prestar atenção nos detalhes do rosto e piscadas de olhos é crucial para detetar fraudes visuais.";
-        quizResult.style.color = "green";
-    } else {
-        mensagemFeedback = "❌ Incorreto. As deepfakes costumam falhar em detalhes biológicos sutis, como a frequência com que o rosto pisca.";
-        quizResult.style.color = "red";
+    // Validação: se o usuário esqueceu de responder alguma
+    if (!q1 || !q2) {
+        quizResult.textContent = "⚠️ Por favor, responda a todas as perguntas antes de enviar!";
+        quizResult.className = "shadow-box warning";
+        return;
     }
-
-    // Manipula o DOM para atualizar o texto e exibir a div de resultado
-    quizResult.textContent = mensagemFeedback;
-    quizResult.classList.remove('hidden');
+    
+    // Contagem de pontos básica por variáveis
+    let acertos = 0;
+    if (q1.value === "correto") acertos++;
+    if (q2.value === "correto") acertos++;
+    
+    // Processamento da resposta dinâmica antes de exibir
+    if (acertos === 2) {
+        quizResult.textContent = "🎉 Incrível! Você acertou 2/2. Você é um cidadão digital consciente e sabe se proteger contra deepfakes!";
+        quizResult.className = "shadow-box success";
+    } else if (acertos === 1) {
+        quizResult.textContent = "👍 Você acertou 1/2. Bom começo, mas fique atento aos pequenos detalhes para não ser enganado.";
+        quizResult.className = "shadow-box attention";
+    } else {
+        quizResult.textContent = "❌ Você acertou 0/2. Cuidado! Revise o nosso guia técnico acima para entender os perigos das deepfakes.";
+        quizResult.className = "shadow-box danger";
+    }
 });
